@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 @Controller//line 5
 public class HomeController {
-    @RequestMapping("/getallPost")//line 7
+    @RequestMapping("/")//line 7
     public String getAllPosts(Model model){//model line 6
 
         ArrayList<Post> posts = new ArrayList<>();//Post line 4
