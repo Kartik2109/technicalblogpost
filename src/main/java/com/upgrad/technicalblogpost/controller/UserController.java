@@ -1,6 +1,7 @@
 package com.upgrad.technicalblogpost.controller;
 
 
+import com.upgrad.technicalblogpost.Service.PostService;
 import com.upgrad.technicalblogpost.Service.UserService;
 import com.upgrad.technicalblogpost.model.Post;
 import com.upgrad.technicalblogpost.model.User;
@@ -15,6 +16,7 @@ import java.util.List;
 public class UserController {
 
     private UserService userService = new UserService();
+    private PostService postService=new PostService();
 
     @RequestMapping("users/login") //localhost:8080/users/login : GET
     public String login(Model model) {
@@ -42,4 +44,10 @@ public class UserController {
         return "redirect:/users/login";
     }
     //TODO: logout feature: done
+    public String logout(Model model){
+        List<Post> post=postService.getAllPosts();
+        model.addAttribute("posts",post);
+        return "redirect:/index";
+    }
+
 }
