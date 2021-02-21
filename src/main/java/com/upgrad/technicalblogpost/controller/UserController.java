@@ -44,10 +44,11 @@ public class UserController {
         return "redirect:/users/login";
     }
     //TODO: logout feature: done
+    @RequestMapping("users/logout")
     public String logout(Model model){
         List<Post> post=postService.getAllPosts();
         model.addAttribute("posts",post);
-        return "redirect:/index";
+        return "redirect:/";
     }
 
 }
